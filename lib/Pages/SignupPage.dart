@@ -3,6 +3,8 @@ import 'package:netflix/socials.dart';
 import 'package:netflix/textForm.dart';
 
 import '../myButtons.dart';
+import 'Confirm.dart';
+import 'SignInPage.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -16,12 +18,23 @@ class SignUp extends StatelessWidget {
         centerTitle: false,
         backgroundColor: Color.fromARGB(0, 119, 30, 125),
         actions: [
-          Text(
-            'skip',
-            style: TextStyle(
-              color: Colors.indigo[600],
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: GestureDetector(
+              child: Text(
+                'Skip',
+                style: TextStyle(
+                  color: Colors.indigo[600],
+                ),
+                textAlign: TextAlign.end,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignIn()),
+                );
+              },
             ),
-            textAlign: TextAlign.end,
           ),
         ],
       ),
@@ -51,10 +64,12 @@ class SignUp extends StatelessWidget {
               hint: 'Password',
               suffix: Icon(
                 Icons.remove_red_eye_outlined,
+                color: Colors.white38,
               ),
             ),
 
             NewButton(
+              screen: SignIn(),
               text: 'Registration',
             ),
             Row(
@@ -68,15 +83,23 @@ class SignUp extends StatelessWidget {
                 SizedBox(
                   width: 15,
                 ),
-                Text('Sign in',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                    )),
+                GestureDetector(
+                  child: Text('Sign in',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                      )),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignIn()),
+                    );
+                  },
+                ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+              padding: const EdgeInsets.fromLTRB(0, 30, 0, 8),
               child: Text(
                 'Sign in with social media',
                 textAlign: TextAlign.center,

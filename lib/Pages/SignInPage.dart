@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/Pages/smartSearch.dart';
 import 'package:netflix/socials.dart';
 import 'package:netflix/textForm.dart';
 
 import '../myButtons.dart';
+import 'Confirm.dart';
+import 'SignupPage.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -16,12 +19,23 @@ class SignIn extends StatelessWidget {
         centerTitle: false,
         backgroundColor: Color.fromARGB(0, 119, 30, 125),
         actions: [
-          Text(
-            'skip',
-            style: TextStyle(
-              color: Colors.indigo[600],
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: GestureDetector(
+              child: Text(
+                'Skip',
+                style: TextStyle(
+                  color: Colors.indigo[600],
+                ),
+                textAlign: TextAlign.end,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignUp()),
+                );
+              },
             ),
-            textAlign: TextAlign.end,
           ),
         ],
       ),
@@ -32,7 +46,7 @@ class SignIn extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  'Sign in',
+                  'Sign In',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
@@ -51,21 +65,31 @@ class SignIn extends StatelessWidget {
               hint: 'Password',
               suffix: Icon(
                 Icons.remove_red_eye_outlined,
+                color: Colors.white38,
               ),
             ),
             Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 5, horizontal: 15.0),
-              child: Text(
-                'Forgot password?',
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  color: Colors.white30,
-                  fontSize: 11.0,
+              child: GestureDetector(
+                child: Text(
+                  'Forgot password?',
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    color: Colors.white38,
+                    fontSize: 11.0,
+                  ),
                 ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ConfirmAccount()),
+                  );
+                },
               ),
             ),
             NewButton(
+              screen: Search(),
               text: 'Login',
             ),
             Row(
@@ -79,11 +103,19 @@ class SignIn extends StatelessWidget {
                 SizedBox(
                   width: 15,
                 ),
-                Text('Sign up',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                    )),
+                GestureDetector(
+                  child: Text('Sign up',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                      )),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUp()),
+                    );
+                  },
+                ),
               ],
             ),
             Padding(

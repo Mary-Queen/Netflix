@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_svg/svg.dart';
 
+//textFormField
 class MyForm extends StatelessWidget {
   MyForm({
     Key? key,
     required this.hint,
     this.applyPadding = true,
     this.suffix,
+    this.prefix,
   });
 
-  String hint;
-  Icon? suffix;
+  String hint; // the hint text
+  Icon? suffix; //suffix icon
+  Icon? prefix; //Prefix icon
   bool applyPadding;
 
   @override
@@ -20,19 +23,21 @@ class MyForm extends StatelessWidget {
           ? const EdgeInsets.fromLTRB(15, 10, 15, 5)
           : EdgeInsets.zero,
       child: TextFormField(
-        // maxLines: 6,
+        // maxLines: 3,
         decoration: InputDecoration(
+          prefixIcon: prefix,
           suffixIcon: suffix,
           hintText: hint,
           hintStyle: const TextStyle(
+            color: Colors.white38,
             fontSize: 15,
             fontWeight: FontWeight.w400,
           ),
 
           // contentPadding: EdgeInsets.fromLTRB(12, 24, 100, 16),
           filled: true,
-          fillColor: Color.fromARGB(255, 101, 105, 113),
-
+          fillColor: Color.fromARGB(255, 88, 97, 114),
+          // what is the diference??
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
