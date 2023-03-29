@@ -13,18 +13,38 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
-  List<Widget> pages = [Home(), Search(), WatchList(), Profile()];
-  int newselectedIndex = 0;
+  static const pages = <Widget>[
+    Home(),
+    KeepAlive(keepAlive: true, child: Search()),
+    KeepAlive(keepAlive: true, child: WatchList()),
+    KeepAlive(keepAlive: true, child: Profile()),
+  ];
+  // int newselectedIndex = 0;
   int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: NavigationBar(
-          backgroundColor: Color.fromARGB(0, 119, 30, 125),
-          destinations: [
+      bottomNavigationBar: NavigationBarTheme(
+        data: Theme.of(context).navigationBarTheme.copyWith(
+              indicatorColor: Colors.red,
+              labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+              labelTextStyle: MaterialStateProperty.resolveWith(
+                (state) {
+                  if (state.contains(MaterialState.selected)) {
+                    return const TextStyle(color: Colors.white);
+                  }
+                  return const TextStyle(color: Colors.white38);
+                },
+              ),
+            ),
+        child: NavigationBar(
+          backgroundColor: const Color.fromARGB(0, 119, 30, 125),
+          destinations: const [
             NavigationDestination(
-              icon: Icon(Icons.home),
+              // this is used for both selected & unselected
+              icon: Icon(Icons.home, color: Colors.white38),
+              selectedIcon: Icon(Icons.home, color: Colors.white),
               label: 'Home',
             ),
             NavigationDestination(
@@ -40,18 +60,21 @@ class _DashBoardState extends State<DashBoard> {
               label: 'Profile',
             ),
           ],
-          selectedIndex: newselectedIndex,
-          onDestinationSelected: (int Index) {
+          selectedIndex: currentPageIndex,
+          onDestinationSelected: (int index) {
             setState(() {
-              newselectedIndex = Index;
+              currentPageIndex = index;
             });
           },
         ),
-        backgroundColor: Color.fromARGB(255, 32, 30, 30),
-        // Color.fromARGB(255, 32, 30, 30),
-        body: IndexedStack(
-          index: newselectedIndex,
-          children: pages,
-        ));
+      ),
+      // colors: Colors.white38,
+      backgroundColor: const Color.fromARGB(255, 32, 30, 30),
+      // Color.fromARGB(255, 32, 30, 30),
+      body: IndexedStack(
+        index: currentPageIndex,
+        children: pages,
+      ),
+    );
   }
 }

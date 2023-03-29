@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 
 class User extends StatelessWidget {
-  User({required this.time, required this.textcolor, required this.userName});
+  User(
+      {required this.time,
+      required this.textcolor,
+      required this.userName,
+      required this.imagePath});
   String time = '5 hours ago';
   bool textcolor = true;
   String userName;
+  String imagePath;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: CircleAvatar(child: Image.asset('assets/chef-guy.png')),
+      leading: CircleAvatar(
+          child: Image.asset(
+        'assets/$imagePath.png',
+        fit: BoxFit.cover,
+      )),
       title: Row(
         children: [
           Text(

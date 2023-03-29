@@ -42,46 +42,55 @@ class _ReviewState extends State<Review> {
       body: ListView(
         children: [
           User(
+            imagePath: 'Joe_Manganiello',
             userName: 'Rypar Design',
             textcolor: false,
             time: 'Now',
           ),
           User(
+            imagePath: 'JK_Simmons',
             userName: 'David Maguire',
             textcolor: true,
             time: '5 hours ago',
           ),
           User(
+            imagePath: 'JK_Simmons',
             userName: 'William Maguire',
             textcolor: true,
             time: '5 hours ago',
           ),
           User(
+            imagePath: 'James_Franco',
             userName: 'Richard Maguire',
             textcolor: true,
             time: '5 hours ago',
           ),
           User(
+            imagePath: 'JK_Simmons',
             userName: 'Tobias Maguire',
             textcolor: true,
             time: '5 hours ago',
           ),
           User(
+            imagePath: 'Joe_Manganiello',
             userName: 'Tobias Maguire',
             textcolor: true,
             time: '5 hours ago',
           ),
           User(
+            imagePath: 'kristenDunst',
             userName: 'Thomas Maguire',
             textcolor: true,
             time: '5 hours ago',
           ),
           User(
+            imagePath: 'Tobey_Maguire',
             userName: 'Charles Maguire',
             textcolor: true,
             time: '5 hours ago',
           ),
           User(
+            imagePath: 'WillemDafoe',
             userName: 'Micheal Maguire',
             textcolor: true,
             time: '5 hours ago',

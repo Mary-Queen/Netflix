@@ -36,7 +36,10 @@ class NewCard extends StatelessWidget {
             Container(
               height: 200,
               width: 120,
-              child: Image.asset('assets/$Imagepath.png'),
+              child: Image.asset(
+                'assets/$Imagepath.png',
+                fit: BoxFit.cover,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

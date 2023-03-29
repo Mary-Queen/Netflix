@@ -334,16 +334,19 @@ class Spiderman extends StatelessWidget {
             ),
           ),
           User(
+            imagePath: 'WillemDafoe',
             userName: 'Tobias Maguire',
             textcolor: true,
             time: '5 hours ago',
           ),
           User(
+            imagePath: 'Tobey_Maguire',
             userName: 'Tobias Maguire',
             textcolor: true,
             time: '5 hours ago',
           ),
           User(
+            imagePath: 'kristenDunst',
             userName: 'Tobias Maguire',
             textcolor: true,
             time: '5 hours ago',

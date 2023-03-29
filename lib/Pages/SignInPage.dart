@@ -6,6 +6,7 @@ import 'package:netflix/textForm.dart';
 import '../myButtons.dart';
 import 'Confirm.dart';
 import 'SignupPage.dart';
+import 'dashBoard.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -89,7 +90,7 @@ class SignIn extends StatelessWidget {
               ),
             ),
             NewButton(
-              screen: Search(),
+              screen: DashBoard(),
               text: 'Login',
             ),
             Row(

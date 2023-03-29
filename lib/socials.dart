@@ -24,7 +24,10 @@ class Social extends StatelessWidget {
               //borderRadius: BorderRadius.all(Radius.circular(10)),
               color: Colors.white,
             ),
-            child: Image.asset('assets/$logo.png'),
+            child: Image.asset(
+              'assets/$logo.png',
+              fit: BoxFit.cover,
+            ),
           ),
           SizedBox(
             width: 70,
