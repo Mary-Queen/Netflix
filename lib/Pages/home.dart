@@ -15,7 +15,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
     return Center(
       child: Container(
         child: Text(
-          'Home Page!!',
+          'Home Page!',
           style: TextStyle(color: Colors.white, fontSize: 18),
         ),
       ),
